@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import registry  # noqa: E402
 import validate_projects  # noqa: E402
 
-STAGES = ["design", "implement", "verify", "apply"]
+STAGES = ["requirements", "design", "implement", "verify", "apply"]
 REPO = "https://github.com/owner/name.git"
 
 

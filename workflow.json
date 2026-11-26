@@ -1,5 +1,6 @@
 {
   "stages": [
+    { "id": "requirements", "name": "요구사항 분석" },
     { "id": "design", "name": "설계" },
     { "id": "implement", "name": "구현" },
     { "id": "verify", "name": "검증" },
