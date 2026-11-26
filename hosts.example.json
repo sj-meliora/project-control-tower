@@ -1,0 +1,11 @@
+{
+  "hosts": {
+    "ghe.example.com": {
+      "token_env": "GHE_EXAMPLE_TOKEN"
+    },
+    "ghe2.example.com": {
+      "api": "https://ghe2.example.com/api/v3",
+      "token_env": "GHE2_EXAMPLE_TOKEN"
+    }
+  }
+}
