@@ -1,0 +1,110 @@
+/* Project Control Tower 대시보드의 스타일. 화면 구성은 DESIGN.md의 DP-5를 따른다.
+   밝은 팔레트로 고정하며, 외부 서버의 자원을 쓰지 않는다(DP-4). */
+:root{color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+:root{
+  --bg:#f8f9fb; --surface:#ffffff; --sunk:#eef1f5; --ink:#17212d; --muted:#5a6878; --line:#dfe4ea;
+  --accent:#2757c9; --on-accent:#ffffff; --attn:#b8501b; --done:#1b7f55;
+  --warn-bg:#fdf3e7;
+  --sans:system-ui,-apple-system,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,Menlo,monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-block:24px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:26px}
+h1,h2,h3,p,ul,ol{margin:0} ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+a{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+
+.banner{background:var(--sunk);border-radius:8px;padding:9px 14px;font-size:13px;color:var(--muted)}
+.banner.warn{background:var(--warn-bg);color:var(--attn)}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px}
+.top h1{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.top .meta{color:var(--muted);font-size:13px}
+
+/* 워크플로 단계: 선으로 이어진 진행 표시 */
+.stepper{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 8px 14px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+.node{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;min-width:0;padding:0 4px}
+.node::before{content:"";position:absolute;top:15px;left:-50%;width:100%;height:2px;background:var(--line);z-index:0}
+.node:first-child::before{display:none}
+.node .circle{position:relative;z-index:1;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--surface);
+  box-shadow:inset 0 0 0 2px var(--line);font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--muted)}
+.node .nm{font-weight:650;font-size:15px;line-height:1.3;word-break:keep-all}
+.node .ct{font-size:12px;color:var(--muted);word-break:keep-all}
+@media (max-width:520px){.node .nm{font-size:13.5px}.node .lbl{display:none}}
+.node:hover .circle{box-shadow:inset 0 0 0 2px var(--accent);color:var(--accent)}
+.node[aria-pressed="true"] .circle{background:var(--accent);box-shadow:none;color:var(--on-accent)}
+.node[aria-pressed="true"] .nm{color:var(--accent)}
+.listhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.listhead h2{font-size:15px;font-weight:650}
+.listhead span{font-size:12.5px;color:var(--muted)}
+.reset{color:var(--accent);font-size:13px;font-weight:600}
+
+/* 프로젝트 카드 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:14px}
+.tile{display:flex;align-items:center;gap:16px;min-width:0;width:100%;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;transition:border-color .12s ease,transform .12s ease}
+.tile .icon{width:84px;flex:none;font-size:25px}
+.tbody{display:flex;flex-direction:column;gap:7px;min-width:0;flex:1}
+.icon{position:relative;width:96px;aspect-ratio:1;max-width:100%;border-radius:22%;display:grid;place-items:center;
+  background:var(--tone,var(--muted));color:#fff;
+  font-family:var(--mono);font-weight:600;font-size:28px;letter-spacing:-.02em;transition:transform .15s ease}
+.icon.emblem{background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.icon img{width:72%;height:72%;object-fit:contain}
+.tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tile .name{font-weight:600;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
+.tile .sub{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:5px}
+.issues{font-weight:600}
+.issues.on{color:var(--attn)}
+.failed{color:var(--attn);font-weight:600}
+.ms{display:flex;flex-direction:column;gap:4px}
+.ms .row{display:flex;justify-content:space-between;gap:8px}
+.ms .ttl{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{height:5px;border-radius:3px;background:var(--sunk);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:10px;background:var(--sunk);color:var(--muted)}
+.chip.hit{background:var(--accent);color:var(--on-accent)}
+
+/* 상세 */
+.back{color:var(--accent);font-weight:600;font-size:14px;align-self:flex-start}
+.head{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.head .icon{width:88px;flex:none;font-size:26px}
+.head .txt{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 260px}
+.head h2{font-size:24px;font-weight:700;letter-spacing:-.01em;overflow-wrap:anywhere}
+.head .desc{color:var(--muted);max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);align-items:center}
+.cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:30px 40px}
+@media (max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+.col{display:flex;flex-direction:column;gap:28px;min-width:0}
+.sec{display:flex;flex-direction:column;gap:10px}
+.sec h3{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted)}
+.signal{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.signal.on{border-left:4px solid var(--attn)}
+.signal .big{font-size:20px;font-weight:700}
+.signal.on .big{color:var(--attn)}
+.signal .d{color:var(--muted);font-size:13.5px}
+.road{display:flex;flex-direction:column}
+.road li{display:grid;grid-template-columns:18px 1fr;gap:0 12px;position:relative;padding-bottom:16px}
+.road li::before{content:"";position:absolute;left:8px;top:16px;bottom:0;width:2px;background:var(--line)}
+.road li:last-child{padding-bottom:0}.road li:last-child::before{display:none}
+.dot{width:12px;height:12px;border-radius:50%;margin:5px 3px 0;box-shadow:inset 0 0 0 2px var(--line);background:var(--bg)}
+.closed .dot{background:var(--done);box-shadow:none}
+.now .dot{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent)}
+.road .t{font-weight:600}
+.closed .t{color:var(--muted);font-weight:400}
+.road .d{font-size:13px;color:var(--muted)}
+.road .body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.tag{font-size:11.5px;font-weight:600;color:var(--accent);margin-left:8px}
+.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.links a{display:flex;flex-direction:column;gap:1px;padding:11px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:600}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+.links a span{font-size:12px;font-weight:400;color:var(--muted)}
+.empty{color:var(--muted)}
+.state{background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:26px 22px;color:var(--muted);max-width:62ch}
+.state strong{display:block;color:var(--ink);margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){.icon,.tile{transition:none}}
