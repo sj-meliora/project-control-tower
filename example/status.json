@@ -1,0 +1,219 @@
+{
+  "aggregatedAt": "2026-11-26T15:04:00Z",
+  "stages": [
+    {
+      "id": "requirements",
+      "name": "요구사항 분석"
+    },
+    {
+      "id": "design",
+      "name": "설계"
+    },
+    {
+      "id": "implement",
+      "name": "구현"
+    },
+    {
+      "id": "verify",
+      "name": "검증"
+    },
+    {
+      "id": "apply",
+      "name": "반영"
+    }
+  ],
+  "projects": [
+    {
+      "repo": "https://github.com/sj-meliora/feature-test-map.git",
+      "url": "https://github.com/sj-meliora/feature-test-map",
+      "host": "github.com",
+      "owner": "sj-meliora",
+      "name": "feature-test-map",
+      "stages": [
+        "design",
+        "verify"
+      ],
+      "error": null,
+      "description": "기능, 시나리오, TC의 관계를 저장하고 검증 공백을 찾는 도구",
+      "pushedAt": "2026-11-25T02:43:18Z",
+      "archived": false,
+      "openIssues": 4,
+      "roadmap": [
+        {
+          "title": "레코드 변환과 조회",
+          "state": "closed",
+          "dueOn": "2026-11-20",
+          "open": 0,
+          "closed": 9
+        },
+        {
+          "title": "시각화 PoC",
+          "state": "open",
+          "dueOn": "2026-12-05",
+          "open": 3,
+          "closed": 5
+        },
+        {
+          "title": "추출과 관계 식별",
+          "state": "open",
+          "dueOn": "2027-01-15",
+          "open": 6,
+          "closed": 0
+        }
+      ],
+      "icon": null
+    },
+    {
+      "repo": "https://ghe.example.com/platform/autodevops.git",
+      "url": "https://ghe.example.com/platform/autodevops",
+      "host": "ghe.example.com",
+      "owner": "platform",
+      "name": "autodevops",
+      "stages": [
+        "implement",
+        "verify",
+        "apply"
+      ],
+      "error": null,
+      "description": "빌드, 테스트, 리뷰 작업을 스킬로 묶은 자동화 도구 모음",
+      "pushedAt": "2026-11-26T08:10:00Z",
+      "archived": false,
+      "openIssues": 7,
+      "roadmap": [
+        {
+          "title": "v1 스킬 정리",
+          "state": "closed",
+          "dueOn": "2026-10-30",
+          "open": 0,
+          "closed": 14
+        },
+        {
+          "title": "v2 무인 실행",
+          "state": "open",
+          "dueOn": "2026-12-19",
+          "open": 7,
+          "closed": 4
+        }
+      ],
+      "icon": "example/icons/autodevops.svg"
+    },
+    {
+      "repo": "https://github.com/sj-meliora/nightwatch-logbook.git",
+      "url": "https://github.com/sj-meliora/nightwatch-logbook",
+      "host": "github.com",
+      "owner": "sj-meliora",
+      "name": "nightwatch-logbook",
+      "stages": [
+        "verify"
+      ],
+      "error": null,
+      "description": "daily regression 결과를 기록하고 열람하는 로그북",
+      "pushedAt": "2026-08-05T09:05:14Z",
+      "archived": false,
+      "openIssues": 0,
+      "roadmap": [
+        {
+          "title": "예시 데이터 PoC",
+          "state": "closed",
+          "dueOn": "2026-08-07",
+          "open": 0,
+          "closed": 12
+        },
+        {
+          "title": "운영 전환",
+          "state": "open",
+          "dueOn": null,
+          "open": 5,
+          "closed": 0
+        }
+      ],
+      "icon": null
+    },
+    {
+      "repo": "https://github.com/sj-meliora/yokoten.git",
+      "url": "https://github.com/sj-meliora/yokoten",
+      "host": "github.com",
+      "owner": "sj-meliora",
+      "name": "yokoten",
+      "stages": [
+        "apply"
+      ],
+      "error": null,
+      "description": "사업화 branch의 변경점을 개발 branch로 옮기는 횡전개 업무 지원 도구",
+      "pushedAt": "2026-08-22T12:39:38Z",
+      "archived": false,
+      "openIssues": 0,
+      "roadmap": [],
+      "icon": null
+    },
+    {
+      "repo": "https://ghe.example.com/platform/knowledge-base.git",
+      "url": "https://ghe.example.com/platform/knowledge-base",
+      "host": "ghe.example.com",
+      "owner": "platform",
+      "name": "knowledge-base",
+      "stages": [
+        "requirements",
+        "design",
+        "implement"
+      ],
+      "error": null,
+      "description": "설계 문서와 결정 기록을 모아 에이전트와 사람이 함께 조회하는 지식 베이스",
+      "pushedAt": "2026-11-24T05:30:00Z",
+      "archived": false,
+      "openIssues": 2,
+      "roadmap": [
+        {
+          "title": "문서 수집",
+          "state": "closed",
+          "dueOn": "2026-09-30",
+          "open": 0,
+          "closed": 8
+        },
+        {
+          "title": "조회 스킬",
+          "state": "closed",
+          "dueOn": "2026-11-10",
+          "open": 0,
+          "closed": 6
+        },
+        {
+          "title": "갱신 자동화",
+          "state": "open",
+          "dueOn": "2026-12-31",
+          "open": 2,
+          "closed": 1
+        }
+      ],
+      "icon": "example/icons/knowledge-base.svg"
+    },
+    {
+      "repo": "https://ghe2.example.com/tools/review-gate.git",
+      "url": "https://ghe2.example.com/tools/review-gate",
+      "host": "ghe2.example.com",
+      "owner": "tools",
+      "name": "review-gate",
+      "stages": [
+        "apply"
+      ],
+      "error": null,
+      "description": "반영 전 변경점을 규칙에 따라 점검하는 게이트",
+      "pushedAt": "2026-11-18T01:00:00Z",
+      "archived": false,
+      "openIssues": 1,
+      "roadmap": [],
+      "icon": null
+    },
+    {
+      "repo": "https://ghe2.example.com/tools/legacy-sync.git",
+      "url": "https://ghe2.example.com/tools/legacy-sync",
+      "host": "ghe2.example.com",
+      "owner": "tools",
+      "name": "legacy-sync",
+      "stages": [
+        "implement"
+      ],
+      "error": "HTTP 404: 찾을 수 없다. 주소가 틀렸거나 접근 권한이 없다."
+    }
+  ]
+}

@@ -12,7 +12,7 @@
 
 ## 현재 상태
 
-등록 목록의 검사와 집계 스크립트까지 구현했다. 대시보드 화면은 아직 구현하지 않았다. 요구사항은 [`REQUIREMENT.md`](REQUIREMENT.md)에, 설계 결정은 [`DESIGN.md`](DESIGN.md)에 기록한다.
+등록 목록의 검사, 집계 스크립트, 대시보드 화면까지 구현했다. 매일 집계를 실행하는 워크플로는 아직 구현하지 않았다. 요구사항은 [`REQUIREMENT.md`](REQUIREMENT.md)에, 설계 결정은 [`DESIGN.md`](DESIGN.md)에 기록한다.
 
 ## 프로젝트 등록
 
@@ -47,6 +47,17 @@ python scripts/aggregate.py
 - 토큰이 필요한 호스트는 `hosts.json`에 토큰을 담은 환경 변수의 이름을 적는다. 형식은 [`hosts.example.json`](hosts.example.json)을 따른다. 토큰의 값은 파일에 적지 않는다.
 - 집계에 실패한 프로젝트가 있어도 나머지 프로젝트는 집계한다. 실패한 프로젝트가 하나라도 있을 때 종료 코드 1로 끝내려면 `--strict`를 붙인다.
 - 예시 목록으로 시험하려면 `--projects projects.example.json --output <임의의 경로>`를 지정한다.
+
+## 대시보드
+
+대시보드는 `index.html`이며, 빌드 단계가 없는 정적 파일이다. GitHub Pages가 `main` 브랜치의 최상위 폴더를 그대로 게시한다.
+
+- 대시보드는 `data/status.json`을 읽어서 화면을 그린다. 이 파일이 없으면 [`example/status.json`](example/status.json)의 예시 데이터를 표시한다.
+- 내 컴퓨터에서 확인하려면 저장소 폴더에서 다음 명령을 실행하고 `http://localhost:8000`을 연다.
+
+```
+python -m http.server
+```
 
 ## 기여
 
