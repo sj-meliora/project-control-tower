@@ -4,12 +4,21 @@
 
 ## 현재 상태
 
-요구사항을 정리하고 설계 결정을 논의하는 단계다. 구현한 내용은 없다.
+요구사항과 설계 결정을 정리했고, 구현을 시작한 단계다. 등록 목록의 형식과 검사까지 구현했으며, 집계, 대시보드 화면, 워크플로는 아직 구현하지 않았다.
 
 - `REQUIREMENT.md`: 요구사항과 제약. 이 프로젝트가 무엇을 해야 하는지는 이 문서를 기준으로 판단한다.
 - `DESIGN.md`: 설계 결정(DP). 결정된 내용과 미결 사항을 DP 단위로 기록한다.
+- `workflow.json`: 워크플로 단계 정의.
+- `projects.example.json`: 프로젝트 목록의 예시. 실제 목록인 `projects.json`은 사내에서 만들며, 이 저장소에는 넣지 않는다.
+- `scripts/registry.py`: 단계 정의와 프로젝트 목록을 읽고 검사하는 함수. `scripts/validate_projects.py`는 이를 실행하는 명령이다.
+- `tests/`: 테스트. `python -m unittest discover -s tests`로 실행한다.
 - `README.md`: 사람을 위한 안내서. 프로젝트의 목적, 현재 상태, 기여 방법을 적는다.
 - `.claude/output-styles/fluent-korean.md`: 이 저장소에서 기본으로 사용하는 출력 스타일. `feature-test-map`에서 가져왔다.
+
+## 구현 규칙
+
+- 스크립트는 Python 표준 라이브러리만 사용한다(C-4). 운영 환경의 Python은 3.13이다.
+- 파일을 읽고 쓸 때에는 인코딩을 UTF-8로 지정한다.
 
 ## PR 규칙
 
