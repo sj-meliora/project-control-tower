@@ -12,7 +12,7 @@
 
 ## 현재 상태
 
-등록 목록의 형식과 검사까지 구현했다. 집계와 대시보드 화면은 아직 구현하지 않았다. 요구사항은 [`REQUIREMENT.md`](REQUIREMENT.md)에, 설계 결정은 [`DESIGN.md`](DESIGN.md)에 기록한다.
+등록 목록의 검사와 집계 스크립트까지 구현했다. 대시보드 화면은 아직 구현하지 않았다. 요구사항은 [`REQUIREMENT.md`](REQUIREMENT.md)에, 설계 결정은 [`DESIGN.md`](DESIGN.md)에 기록한다.
 
 ## 프로젝트 등록
 
@@ -35,6 +35,18 @@ PR을 올리기 전에 다음 명령으로 목록을 검사할 수 있다.
 ```
 python scripts/validate_projects.py projects.json
 ```
+
+## 집계
+
+다음 명령은 `projects.json`에 등록된 프로젝트의 정보를 GitHub API에서 읽어 `data/status.json`을 만든다.
+
+```
+python scripts/aggregate.py
+```
+
+- 토큰이 필요한 호스트는 `hosts.json`에 토큰을 담은 환경 변수의 이름을 적는다. 형식은 [`hosts.example.json`](hosts.example.json)을 따른다. 토큰의 값은 파일에 적지 않는다.
+- 집계에 실패한 프로젝트가 있어도 나머지 프로젝트는 집계한다. 실패한 프로젝트가 하나라도 있을 때 종료 코드 1로 끝내려면 `--strict`를 붙인다.
+- 예시 목록으로 시험하려면 `--projects projects.example.json --output <임의의 경로>`를 지정한다.
 
 ## 기여
 
