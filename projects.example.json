@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "repo": "https://github.com/sj-meliora/feature-test-map.git",
+      "stages": ["design", "verify"]
+    },
+    {
+      "repo": "https://github.com/sj-meliora/nightwatch-logbook.git",
+      "stages": ["verify"]
+    },
+    {
+      "repo": "https://github.com/sj-meliora/yokoten.git",
+      "stages": ["apply"]
+    }
+  ]
+}
